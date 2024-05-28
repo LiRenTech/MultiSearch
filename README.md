@@ -2,6 +2,8 @@
 
 特点就是广，平台多，不用自己一个一个打开搜索
 
+https://littlefean.github.io/multi-search-tool/
+
 用途：
 
 1. 看看自己想到的某个离谱的东西是不是别人已经想到了
