@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Search-Tool</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Multi-Search-Tool</h1>
+      <p>
+        请输入搜索的内容，将会打开多个搜索引擎进行搜索，可以输入多行，每行内容会作为一个搜索词进行搜索。
+      </p>
+      <p>
+        可以先用LLM生成多种搜索词，然后再用本工具换行输入进行搜索，可以节省时间。
+      </p>
+      <p>注意！该搜索会超大批量弹窗，需要设置浏览器允许多个弹窗。</p>
+      <textarea name="" id="text"></textarea>
+      <button onclick="startSearch()">开始多重搜索（重磅弹窗警告）</button>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
