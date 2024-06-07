@@ -1,38 +1,106 @@
-function startSearch() {
-  // const contentAll = "混凝土与意大利拌面\n意大利面与24号混凝土";
-  const contentAll = document.getElementById("text").value;
+// 创建一个URL模板数组，其中 {{content}} 是占位符
+const searchEngines = [
+  {
+    url: "https://cn.bing.com/search?q={{content}}",
+    name: "Bing",
+    isSelected: true,
+  },
+  {
+    url: "https://www.google.com/search?q={{content}}",
+    name: "Google",
+    isSelected: true,
+  },
+  {
+    url: "https://www.baidu.com/s?wd={{content}}",
+    name: "百度",
+    isSelected: true,
+  },
+  {
+    url: "https://search.bilibili.com/all?keyword={{content}}",
+    name: "Bilibili",
+    isSelected: true,
+  },
+  {
+    url: "https://www.zhihu.com/search?type=content&q={{content}}",
+    name: "知乎",
+    isSelected: true,
+  },
+  {
+    url: "https://www.xiaohongshu.com/search_result?keyword={{content}}&source=unknown",
+    name: "小红书",
+    isSelected: true,
+  },
+  {
+    url: "https://kaifa.baidu.com/searchPage?wd={{content}}",
+    name: "百度开发者",
+    isSelected: true,
+  },
+  {
+    url: "https://so.csdn.net/so/search?q={{content}}&t=all&u=",
+    name: "CSDN",
+    isSelected: true,
+  },
+  {
+    url: "https://www.jianshu.com/search?q={{content}}&page=1&type=note",
+    name: "简书",
+    isSelected: true,
+  },
+  {
+    url: "https://github.com/search?q={{content}}&type=repositories",
+    name: "GitHub",
+    isSelected: true,
+  },
+  {
+    url: "https://www.loc.gov/collections/world-digital-library/?q={{content}}",
+    name: "LOC World Digital Library",
+    isSelected: true,
+  },
+  {
+    url: "https://www.fastsoso.cc/search?k={{content}}",
+    name: "Fastsoso网盘搜索",
+    isSelected: true,
+  },
+];
 
-  // 多重搜索
+window.onload = function () {
+  // 渲染搜索列表
+  const searchList = document.getElementById("search-list");
+  searchEngines.forEach((url) => {
+    /**
+     * 每一项创建成一个多选框，并绑定事件
+     *
+     */
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = url.isSelected;
+    checkbox.id = `checkbox-${url.name}`;
+    checkbox.addEventListener("change", function () {
+      url.isSelected = this.checked;
+    });
+
+    const label = document.createElement("label");
+    label.htmlFor = `checkbox-${url.name}`;
+    label.textContent = url.name;
+
+    const li = document.createElement("li");
+    li.appendChild(checkbox);
+    li.appendChild(label);
+    searchList.appendChild(li);
+  });
+};
+
+function startSearch() {
+  const contentAll = document.getElementById("text").value;
+  const selectedEngines = searchEngines.filter((engine) => engine.isSelected);
+
   for (let content of contentAll.split("\n")) {
     if (content.trim() === "") {
       continue;
     }
-    // 搜索引擎
-    window.open(`https://cn.bing.com/search?q=${content}`);
-    window.open(`https://www.google.com/search?q=${content}`);
-    window.open(`https://www.baidu.com/s?wd=${content}`);
 
-    // 其他媒体平台
-    window.open(`https://search.bilibili.com/all?keyword=${content}`);
-    window.open(`https://www.zhihu.com/search?type=content&q=${content}`);
-    window.open(
-      `https://www.xiaohongshu.com/search_result?keyword=${content}&source=unknown`
-    );
-
-    // 编程相关
-    // 开发者搜索
-    window.open(`https://kaifa.baidu.com/searchPage?wd=${content}`);
-    // CSDN
-    window.open(`https://so.csdn.net/so/search?q=${content}&t=all&u=`);
-    // 简书
-    window.open(`https://www.jianshu.com/search?q=${content}&page=1&type=note`);
-    window.open(`https://github.com/search?q=${content}&type=repositories`);
-
-    // 数字图书馆
-    window.open(
-      `https://www.loc.gov/collections/world-digital-library/?q=${content}`
-    );
-    // 网盘搜索
-    window.open(`https://www.fastsoso.cc/search?k=${content}`);
+    selectedEngines.forEach((engine) => {
+      let url = engine.url.replace("{{content}}", encodeURIComponent(content));
+      window.open(url);
+    });
   }
 }

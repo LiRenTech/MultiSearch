@@ -21,8 +21,9 @@ h1 {
 }
 
 p {
+  font-size: 12px;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   max-width: 600px;
   text-align: center;
 }
