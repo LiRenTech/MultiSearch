@@ -60,6 +60,16 @@ const searchEngines = [
     name: "Fastsoso网盘搜索",
     isSelected: true,
   },
+  {
+    url: "https://zh.annas-archive.org/search?index=&page=1&q={{content}}&sort=",
+    name: "书籍搜索-安娜的档案",
+    isSelected: true,
+  },
+  {
+    url: "https://www.pdfdrive.com/search?q={{content}}&pagecount=&pubyear=&searchin=&em=",
+    name: "书籍搜索-pdfDrive",
+    isSelected: true,
+  },
 ];
 
 window.onload = function () {
