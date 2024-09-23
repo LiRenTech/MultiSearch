@@ -1,5 +1,7 @@
 # 一键多重搜索工具
 
+注意：此仓库已停更，请详见v2版本：https://github.com/LiRenTech/multi-search-v2
+
 特点就是广，平台多，不用自己一个一个打开搜索
 
 [https://lirentech.github.io/multi-search-tool/](https://lirentech.github.io/MultiSearch/)
