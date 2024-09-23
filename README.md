@@ -2,7 +2,7 @@
 
 特点就是广，平台多，不用自己一个一个打开搜索
 
-https://littlefean.github.io/multi-search-tool/
+[https://littlefean.github.io/multi-search-tool/](https://lirentech.github.io/MultiSearch/)
 
 用途：
 
